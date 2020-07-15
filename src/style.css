@@ -60,3 +60,12 @@ body {
   margin-left: 722px;
   line-height: 20px;
 }
+
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}

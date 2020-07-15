@@ -39,13 +39,15 @@ function showWeather(response) {
   myCity.innerHTML = response.data.name;
 
   let myCityTemp = document.querySelector("#real-temperature");
-  myCityTemp.innerHTML = `${Math.round(response.data.main.temp)}°C`;
+  myCityTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
 
   let myCityHum = document.querySelector("#humidity");
   myCityHum.innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
 
   let myCityWind = document.querySelector("#wind");
   myCityWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}m/s`;
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function weatherSearch() {
@@ -60,5 +62,33 @@ function weatherSearch() {
   }
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
 }
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#real-temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#real-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let searchMyCity = document.querySelector("#search-form");
 searchMyCity.addEventListener("submit", weatherSearch);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("New York");
