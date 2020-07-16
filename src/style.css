@@ -5,6 +5,9 @@ body {
   margin-top: 50px;
   font-family: "Raleway", sans-serif;
 }
+h2 {
+  margin-bottom: 0;
+}
 .card {
   background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
   display: block;
@@ -48,8 +51,7 @@ body {
 }
 .open-source {
   font-size: 10px;
-  margin-left: 722px;
-  line-height: 20px;
+  text-align: center;
 }
 
 .weather-temperature .active {
