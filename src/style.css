@@ -19,9 +19,6 @@ body {
 .col-7 {
   padding-right: 0px;
 }
-.fully-sunny {
-  font-size: 80px;
-}
 .card-body {
   color: #4d4d4d;
   padding: 50px;
@@ -46,12 +43,6 @@ body {
 .col-3 {
   font-size: 14px;
 }
-.stockholm {
-  text-align: center;
-}
-.riga {
-  text-align: center;
-}
 .weekday {
   font-size: 14px;
 }
@@ -62,10 +53,16 @@ body {
 }
 
 .weather-temperature .active {
-  color: rgb(33, 33, 33);
+  color: #4d4d4d;
   cursor: default;
 }
 
 .weather-temperature .active:hover {
   text-decoration: none;
+}
+#main-city {
+  margin-top: 8px;
+}
+#description {
+  text-transform: capitalize;
 }

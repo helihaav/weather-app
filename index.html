@@ -17,21 +17,6 @@
         <div class="card" style="width: 30rem;">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-3 helsinki">
-                        Helsinki
-                    </div>
-                    <div class="col-3 stockholm">
-                        Stockholm
-                    </div>
-                    <div class="col-3 riga">
-                        Riga
-                    </div>
-                    <div class="col-3 vilnius">
-                        Vilnius
-                    </div>
-                </div>
-                <br />
-                <div class="row">
                     <div class="col-7">
                         <form id="search-form">
                             <input type="search" class="form-control" id="search-input" placeholder="enter your city" />
@@ -54,15 +39,17 @@
                             Humidity: 0%
                         </span>
                         <div class="row">
-                            <div class="col-9">
+                            <div class="col-11">
                                 <span id="wind">
                                     Wind: 7m/s
+                                </span>
+                                <span id="description">
+                                    Cloudy
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <br />
                 <div class="row">
                     <div class="col-7">
                         <h1 id="main-city">
@@ -78,8 +65,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-5 fully-sunny">
-                        ☀️
+                    <div class="col-5">
+                        <img
+                        src="http://openweathermap.org/img/wn/04d@2x.png"
+                        alt="CLoudy"
+                        id="icon">
                     </div>
                 </div>
                 <br />

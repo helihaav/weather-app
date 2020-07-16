@@ -26,6 +26,7 @@ let date = document.querySelector("#day-time");
 date.innerHTML = `${day}, ${hours}:${minutes}`;
 
 function showWeather(response) {
+  console.log(response.data);
   let myCity = document.querySelector("#main-city");
   myCity.innerHTML = response.data.name;
 
@@ -37,6 +38,15 @@ function showWeather(response) {
 
   let myCityWind = document.querySelector("#wind");
   myCityWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}m/s`;
+
+  let myCityIcon = document.querySelector("#icon");
+  myCityIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  let myCityDescription = document.querySelector("#description");
+  myCityDescription.innerHTML = response.data.weather[0].description;
 
   celsiusTemperature = response.data.main.temp;
 }
