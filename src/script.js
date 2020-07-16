@@ -25,15 +25,6 @@ console.log(`${day}, ${hours}, ${minutes}`);
 let date = document.querySelector("#day-time");
 date.innerHTML = `${day}, ${hours}:${minutes}`;
 
-function searchCity(event) {
-  event.preventDefault();
-  let searchedCity = document.querySelector("#search-input");
-  let showCity = document.querySelector("#main-city");
-  showCity.innerHTML = searchedCity.value;
-}
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchCity);
-
 function showWeather(response) {
   let myCity = document.querySelector("#main-city");
   myCity.innerHTML = response.data.name;
@@ -50,16 +41,20 @@ function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
 }
 
-function weatherSearch() {
+function weatherSearch(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
   let city = `${searchInput.value}`;
-  let apiKey = "99fa2ab95f6627691849388c94fbc8df";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   let h1 = document.querySelector("h1");
   if (searchInput.value) {
     h1.innerHTML = `${city}`;
   }
+  search(city);
+}
+
+function search(city) {
+  let apiKey = "99fa2ab95f6627691849388c94fbc8df";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
 }
 
@@ -90,3 +85,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Tallinn");
